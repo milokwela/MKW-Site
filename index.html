@@ -11,19 +11,19 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="MKW Music — музыка под ваш вкус и управление жестами">
 <meta property="og:description" content="Бесплатный музыкальный плеер: бесконечная MKW Волна, жесты, темы, поиск по нескольким источникам.">
-<meta property="og:image" content="https://xn--80adpkcic0dzd.xn--p1acf/img/logo.jpg">
+<meta property="og:image" content="https://xn--80adpkcic0dzd.xn--p1acf/logo.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta name="theme-color" content="#0d0a0b">
-<link rel="icon" href="img/logo.jpg">
+<link rel="icon" href="logo.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"SoftwareApplication","name":"MKW Music","alternateName":["МКВ Музыка","MKW Музыка","мквмузыка.рус","mkwmusic.ru"],"applicationCategory":"MultimediaApplication","operatingSystem":"Android, iOS, Windows, macOS, Linux (веб-приложение в браузере)","url":"https://mkwmusic.ru","description":"MKW Music — бесплатный музыкальный плеер для телефона и компьютера: MKW Волна, управление жестами, поиск по iTunes, YouTube и Audius, лайки, плейлисты, история, темы оформления.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"},"author":{"@type":"Person","name":"MiloKwel","url":"https://github.com/milokwela"},"inLanguage":"ru"},
 {"@type":"WebSite","name":"MKW Music","url":"https://xn--80adpkcic0dzd.xn--p1acf/","inLanguage":"ru"},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Что такое MKW Music?","acceptedAnswer":{"@type":"Answer","text":"MKW Music — бесплатный музыкальный плеер, который работает в браузере и устанавливается на телефон или компьютер как приложение. Главные особенности: бесконечная MKW Волна под ваш вкус, управление жестами через камеру, поиск по нескольким источникам и оформление в стиле Material You с эффектом жидкого стекла."}},
-{"@type":"Question","name":"Кто создатель MKW Music?","acceptedAnswer":{"@type":"Answer","text":"MKW Music — название сервиса. Его создатель MiloKwel делает все обновления и разработку."}},
+{"@type":"Question","name":"Кто создатель MKW Music?","acceptedAnswer":{"@type":"Answer","text":"MKW Music — музыкальный плеер. Его создатель MiloKwel делает все обновления и разработку, чтобы всё работало."}},
 {"@type":"Question","name":"Что такое MKW Волна?","acceptedAnswer":{"@type":"Answer","text":"MKW Волна — бесконечный поток музыки, который подстраивается под ваш вкус: учитывает лайки и историю, реагирует на пропуски и дослушивания, открывает новых исполнителей из любимых жанров и не ставит одного артиста подряд. Любой трек можно отметить дизлайком."}},
-{"@type":"Question","name":"Как работает управление жестами?","acceptedAnswer":{"@type":"Answer","text":"В Профиле включается переключатель «Жесты» с вашего согласия. Камера работает на вашем устройстве, изображение никуда не передаётся и не сохраняется. Жесты: ✌️ следующий трек, 🤟 предыдущий, 👍 лайк, 👎 дизлайк, ✋ пауза, ☝️ продолжить."}},
+{"@type":"Question","name":"Как работает управление жестами?","acceptedAnswer":{"@type":"Answer","text":"В Профиле включается переключатель «Жесты» с вашего согласия. Камера работает на вашем устройстве, изображение никуда не передаётся и не сохраняется. Жесты: два пальца — следующий трек, рок-жест — предыдущий, большой палец вверх — лайк, вниз — дизлайк, открытая ладонь — пауза, палец вверх — продолжить."}},
 {"@type":"Question","name":"Нужна ли почта для регистрации?","acceptedAnswer":{"@type":"Answer","text":"Нет. Достаточно придумать ник и пароль."}},
 {"@type":"Question","name":"Откуда берётся музыка?","acceptedAnswer":{"@type":"Answer","text":"MKW Music ищет треки через iTunes (30-секундные фрагменты), YouTube (официальный встроенный плеер) и Audius. Приложение не хранит музыку у себя."}},
 {"@type":"Question","name":"Как установить MKW Music на телефон?","acceptedAnswer":{"@type":"Answer","text":"Откройте mkwmusic.ru в браузере и нажмите «Установить приложение». На iPhone: «Поделиться» в Safari → «На экран Домой»."}}
@@ -69,7 +69,10 @@ h2{font-size:clamp(28px,4vw,44px);margin:0 0 14px;letter-spacing:-.5px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .card{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:26px;padding:24px;backdrop-filter:blur(14px);transition:transform .25s,border-color .25s}
 .card:hover{transform:translateY(-6px);border-color:rgba(255,122,184,.5)}
-.card .ic{font-size:34px;margin-bottom:10px}
+.card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg,rgba(255,122,184,.25),rgba(143,107,255,.25));border:1px solid var(--line)}
+.sv{width:24px;height:24px;fill:none;stroke:var(--p);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.g .sv{width:38px;height:38px;margin:0 auto 10px;display:block;animation:wave 2.6s ease-in-out infinite}
+.g b{display:block;margin-bottom:2px}
 .card h3{margin:0 0 6px;font-size:20px}.card p{margin:0;color:var(--mut);font-size:15px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
 .split.rev .shot{order:-1}
@@ -78,11 +81,11 @@ h2{font-size:clamp(28px,4vw,44px);margin:0 0 14px;letter-spacing:-.5px}
 .list{padding:0;margin:18px 0 0;list-style:none}
 .list li{padding:10px 0 10px 34px;position:relative;color:var(--mut)}
 .list li b{color:var(--tx)}
-.list li::before{content:"♪";position:absolute;left:4px;color:var(--p);font-weight:800}
+.list li::before{content:"";position:absolute;left:6px;top:20px;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2))}
 .gest{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:22px}
 .g{border:1px solid var(--line);border-radius:22px;padding:18px;text-align:center;background:rgba(255,255,255,.04)}
-.g em{display:block;font-style:normal;font-size:46px;animation:wave 2.6s ease-in-out infinite}
-.g:nth-child(2) em{animation-delay:-.4s}.g:nth-child(3) em{animation-delay:-.8s}.g:nth-child(4) em{animation-delay:-1.2s}.g:nth-child(5) em{animation-delay:-1.6s}.g:nth-child(6) em{animation-delay:-2s}
+
+
 @keyframes wave{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(10deg) scale(1.18)}}
 .g span{color:var(--mut);font-size:14px}
 .desk{border-radius:20px;border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.55);overflow:hidden}
@@ -102,41 +105,55 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="s-wave" viewBox="0 0 24 24"><path d="M3 12c2-5 4-5 6 0s4 5 6 0 4-5 6 0"/></symbol>
+<symbol id="s-hand" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11m0-4.500a1.500 1.500 0 0 1 3 0V11m0-3a1.500 1.500 0 0 1 3 0v6c0 4-2.500 6-5.500 6S6 18 5 15l-1-3a1.500 1.500 0 0 1 3-1l1 2"/></symbol>
+<symbol id="s-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.500"/><path d="m16 16 5 5"/></symbol>
+<symbol id="s-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.500 0 2-1 1.500-2s0-2.500 1.500-2.500H17a4 4 0 0 0 4-4C21 6.500 17 3 12 3z"/><circle cx="7.500" cy="11" r="1"/><circle cx="11" cy="7.500" r="1"/><circle cx="15.500" cy="8.500" r="1"/></symbol>
+<symbol id="s-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.800-8-10.500A4.500 4.500 0 0 1 12 7.300 4.500 4.500 0 0 1 20 9.500C20 15.200 12 20 12 20z"/></symbol>
+<symbol id="s-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.700 0l3-3a4 4 0 0 0-5.700-5.700l-1 1M14 10a4 4 0 0 0-5.700 0l-3 3a4 4 0 0 0 5.700 5.700l1-1"/></symbol>
+<symbol id="s-next" viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM18 5v14"/></symbol>
+<symbol id="s-prev" viewBox="0 0 24 24"><path d="M18 5l-9 7 9 7zM6 5v14"/></symbol>
+<symbol id="s-up" viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-7c1.500 0 2.500 1 2.500 2.500V9H19a2 2 0 0 1 2 2.300l-1 6A2 2 0 0 1 18 19H7"/></symbol>
+<symbol id="s-down" viewBox="0 0 24 24"><path d="M7 13V4H4v9zM7 13l4 7c1.500 0 2.500-1 2.500-2.500V15H19a2 2 0 0 0 2-2.300l-1-6A2 2 0 0 0 18 5H7"/></symbol>
+<symbol id="s-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+<symbol id="s-play" viewBox="0 0 24 24"><path d="M7 4.500l12 7.500-12 7.500z"/></symbol>
+</defs></svg>
 <div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="wrap">
 <header class="top">
-  <a class="brand" href="#top"><img src="img/logo.jpg" alt="Логотип MKW Music">MKW Music</a>
+  <a class="brand" href="#top"><img src="logo.jpg" alt="Логотип MKW Music">MKW Music</a>
   <nav><a href="#about">О сервисе</a><a href="#wave">Волна</a><a href="#gestures">Жесты</a><a href="#design">Дизайн</a><a href="#faq">Вопросы</a></nav>
 </header>
 
 <main id="top">
 <div class="hero">
   <div>
-    <span class="tag">Бесплатно · Android, iPhone, ПК · Версия 0.11 beta</span>
+    <span class="tag">Бесплатно · Android, iPhone, ПК · Версия 0.11.1 beta</span>
     <h1><span>MKW Music</span> — музыка, которая подстраивается под вас</h1>
     <p class="lead">Бесплатный музыкальный плеер для телефона и компьютера. Бесконечная <b>MKW Волна</b> подбирает треки под ваш вкус, а переключать музыку можно <b>жестом руки</b>, не касаясь экрана.</p>
     <div class="cta">
-      <a class="btn" href="https://mkwmusic.ru">▶ Открыть MKW Music</a>
+      <a class="btn" href="https://mkwmusic.ru">Открыть MKW Music</a>
       <a class="btn ghost" href="#about">Что это такое</a>
     </div>
   </div>
   <div class="phones" aria-hidden="true">
-    <div class="phone p1"><img src="img/library.webp" alt="" width="420" height="840"></div>
-    <div class="phone p2"><img src="img/player.webp" alt="" width="420" height="840"></div>
-    <div class="phone p3"><img src="img/black.webp" alt="" width="420" height="840"></div>
+    <div class="phone p1"><img src="shot-library.webp" alt="" width="420" height="840"></div>
+    <div class="phone p2"><img src="shot-player.webp" alt="" width="420" height="840"></div>
+    <div class="phone p3"><img src="shot-black.webp" alt="" width="420" height="840"></div>
   </div>
 </div>
 
 <section id="about" class="rv">
   <h2>Что такое MKW Music</h2>
-  <p class="sub"><b>MKW Music</b> — название сервиса, <b>MiloKwel</b> — его создатель: он делает все обновления и разработку. Это музыкальный веб-плеер, который открывается в браузере и устанавливается на телефон или компьютер как обычное приложение. Музыка ищется через iTunes, YouTube и Audius, а оформление сделано в стиле Material You с эффектом «жидкого стекла».</p>
+  <p class="sub"><b>MKW Music</b> — бесплатный музыкальный плеер для телефона и компьютера. Создатель — <b>MiloKwel</b>: он делает все обновления и разработку, чтобы всё работало.</p>
   <div class="grid">
-    <div class="card"><div class="ic">🌊</div><h3>MKW Волна</h3><p>Бесконечный поток музыки под ваш вкус. Учится на лайках, истории, пропусках и дослушиваниях.</p></div>
-    <div class="card"><div class="ic">✌️</div><h3>Управление жестами</h3><p>Следующий трек, предыдущий, лайк, дизлайк, пауза и продолжение — жестом перед камерой.</p></div>
-    <div class="card"><div class="ic">🔎</div><h3>Поиск везде</h3><p>iTunes, YouTube, Audius и поиск по ссылке. Источник выбирается в Профиле.</p></div>
-    <div class="card"><div class="ic">🎨</div><h3>Темы и цвет</h3><p>Авто, светлая, тёмная и полностью чёрная тема. Акцент — любой цвет на выбор.</p></div>
-    <div class="card"><div class="ic">❤️</div><h3>Библиотека</h3><p>Лайки, плейлисты и история прослушивания. Всё синхронизируется с вашим аккаунтом.</p></div>
-    <div class="card"><div class="ic">🔗</div><h3>Поделиться треком</h3><p>Ссылка на песню: друг открывает её и сразу слушает.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-wave"/></svg></div><h3>MKW Волна</h3><p>Бесконечный поток музыки под ваш вкус. Учится на лайках, истории, пропусках и дослушиваниях.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-hand"/></svg></div><h3>Управление жестами</h3><p>Следующий трек, предыдущий, лайк, дизлайк, пауза и продолжение — жестом перед камерой.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-search"/></svg></div><h3>Поиск везде</h3><p>iTunes, YouTube, Audius и поиск по ссылке. Источник выбирается в Профиле.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-palette"/></svg></div><h3>Темы и цвет</h3><p>Авто, светлая, тёмная и полностью чёрная тема. Акцент — любой цвет на выбор.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-heart"/></svg></div><h3>Библиотека</h3><p>Лайки, плейлисты и история прослушивания. Всё синхронизируется с вашим аккаунтом.</p></div>
+    <div class="card"><div class="ic"><svg class="sv"><use href="#s-link"/></svg></div><h3>Поделиться треком</h3><p>Ссылка на песню: друг открывает её и сразу слушает.</p></div>
   </div>
 </section>
 
@@ -149,10 +166,10 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
       <li><b>Реагирует на вас:</b> пропустили трек — исполнитель теряет вес, дослушали — получает.</li>
       <li><b>Открывает новое:</b> добавляет исполнителей из любимых жанров, которых вы ещё не слушали.</li>
       <li><b>Не повторяется:</b> не ставит одного артиста подряд и не возвращает недавнее.</li>
-      <li><b>Дизлайк 👎</b> есть у любого трека — такой трек и похожие реже попадаются.</li>
+      <li><b>Дизлайк</b> есть у любого трека — такой трек и похожие реже попадаются.</li>
     </ul>
   </div>
-  <div class="shot rv"><div class="phone"><img src="img/home.webp" alt="Главный экран MKW Music: приветствие, поиск и карточка MKW Волна" width="420" height="840" loading="lazy"></div></div>
+  <div class="shot rv"><div class="phone"><img src="shot-home.webp" alt="Главный экран MKW Music: приветствие, поиск и карточка MKW Волна" width="420" height="840" loading="lazy"></div></div>
 </section>
 
 <section id="gestures" class="split rev">
@@ -160,16 +177,16 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
     <h2>Управление жестами</h2>
     <p class="sub">Руки заняты или грязные? Покажите жест камере. Включается в Профиле, только с вашего согласия, и по умолчанию выключено.</p>
     <div class="gest">
-      <div class="g"><em>✌️</em><span>Следующий трек</span></div>
-      <div class="g"><em>🤟</em><span>Предыдущий трек</span></div>
-      <div class="g"><em>👍</em><span>Лайк</span></div>
-      <div class="g"><em>👎</em><span>Дизлайк</span></div>
-      <div class="g"><em>✋</em><span>Пауза</span></div>
-      <div class="g"><em>☝️</em><span>Продолжить</span></div>
+      <div class="g"><svg class="sv"><use href="#s-next"/></svg><b>Следующий трек</b><span>Два пальца</span></div>
+      <div class="g"><svg class="sv"><use href="#s-prev"/></svg><b>Предыдущий трек</b><span>Рок-жест</span></div>
+      <div class="g"><svg class="sv"><use href="#s-up"/></svg><b>Лайк</b><span>Большой палец вверх</span></div>
+      <div class="g"><svg class="sv"><use href="#s-down"/></svg><b>Дизлайк</b><span>Большой палец вниз</span></div>
+      <div class="g"><svg class="sv"><use href="#s-pause"/></svg><b>Пауза</b><span>Открытая ладонь</span></div>
+      <div class="g"><svg class="sv"><use href="#s-play"/></svg><b>Продолжить</b><span>Палец вверх</span></div>
     </div>
     <p class="sub" style="margin-top:20px">Картинка с камеры обрабатывается прямо на вашем устройстве, никуда не передаётся и не сохраняется. Функция в бета-версии: нужна включённая камера и открытая вкладка.</p>
   </div>
-  <div class="shot rv"><div class="phone"><img src="img/profile.webp" alt="Профиль MKW Music: настройки темы, цвета, источников поиска и жестов" width="420" height="840" loading="lazy"></div></div>
+  <div class="shot rv"><div class="phone"><img src="shot-profile.webp" alt="Профиль MKW Music: настройки темы, цвета, источников поиска и жестов" width="420" height="840" loading="lazy"></div></div>
 </section>
 
 <section id="search" class="split">
@@ -183,13 +200,13 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
       <li><b>Свайп:</b> плеер раскрывается и сворачивается движением пальца.</li>
     </ul>
   </div>
-  <div class="shot rv"><div class="phone"><img src="img/search.webp" alt="Поиск в MKW Music: список найденных треков" width="420" height="840" loading="lazy"></div></div>
+  <div class="shot rv"><div class="phone"><img src="shot-search.webp" alt="Поиск в MKW Music: список найденных треков" width="420" height="840" loading="lazy"></div></div>
 </section>
 
 <section id="design" class="rv">
   <h2>Дизайн: Material You и жидкое стекло</h2>
   <p class="sub">Нижнее меню — стеклянное: подсветка следует за пальцем. Вкладки библиотеки работают так же. Тёмная тема и полностью чёрная тема экономят заряд на OLED-экранах.</p>
-  <div class="desk"><img src="img/desktop.webp" alt="MKW Music на компьютере" width="1280" height="800" loading="lazy"></div>
+  <div class="desk"><img src="shot-desktop.webp" alt="MKW Music на компьютере" width="1280" height="800" loading="lazy"></div>
 </section>
 
 <section id="install" class="split rev">
@@ -200,15 +217,15 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
       <li><b>iPhone:</b> в Safari нажмите «Поделиться» → «На экран Домой».</li>
       <li><b>Регистрация:</b> придумайте ник и пароль, почта не нужна.</li>
     </ul>
-    <div class="cta"><a class="btn" href="https://mkwmusic.ru">▶ Открыть MKW Music</a></div>
+    <div class="cta"><a class="btn" href="https://mkwmusic.ru">Открыть MKW Music</a></div>
   </div>
-  <div class="shot rv"><div class="phone"><img src="img/auth.webp" alt="Экран входа MKW Music" width="420" height="840" loading="lazy"></div></div>
+  <div class="shot rv"><div class="phone"><img src="shot-auth.webp" alt="Экран входа MKW Music" width="420" height="840" loading="lazy"></div></div>
 </section>
 
 <section id="faq" class="rv">
   <h2>Вопросы и ответы</h2>
   <details open><summary>Что такое MKW Music?</summary><p>Бесплатный музыкальный плеер, который работает в браузере и ставится на телефон или компьютер как приложение. Главное в нём — бесконечная MKW Волна, управление жестами, поиск по нескольким источникам и красивое оформление.</p></details>
-  <details><summary>Кто создатель MKW Music?</summary><p>MKW Music — название сервиса. Создатель MiloKwel делает все обновления и разработку.</p></details>
+  <details><summary>Кто создатель MKW Music?</summary><p>Создатель — MiloKwel. Он делает все обновления и разработку, чтобы всё работало.</p></details>
   <details><summary>Что такое MKW Волна?</summary><p>Бесконечный поток музыки, который подстраивается под ваш вкус: учитывает лайки и историю, реагирует на пропуски и дослушивания, открывает новых исполнителей из любимых жанров.</p></details>
   <details><summary>Как работают жесты и безопасно ли это?</summary><p>Включаются в Профиле после вашего согласия. Камера работает на вашем устройстве, изображение никуда не передаётся и не сохраняется.</p></details>
   <details><summary>Нужна ли почта?</summary><p>Нет, достаточно ника и пароля.</p></details>
@@ -218,8 +235,8 @@ footer{padding:40px 0 60px;color:var(--mut);font-size:14px;border-top:1px solid 
 
 <section class="rv">
   <div class="creator">
-    <img src="img/logo.jpg" alt="Логотип создателя MiloKwel" width="110" height="110" loading="lazy">
-    <div><h2 style="margin:0 0 6px">Создатель — MiloKwel</h2><p class="sub" style="margin:0">MKW Music — личный проект: все обновления и разработку делает MiloKwel. Исходный код и новости — на <a href="https://github.com/milokwela">GitHub</a>.</p></div>
+    <img src="logo.jpg" alt="Логотип создателя MiloKwel" width="110" height="110" loading="lazy">
+    <div><h2 style="margin:0 0 6px">Создатель — MiloKwel</h2><p class="sub" style="margin:0">Все обновления и разработку делает MiloKwel, чтобы всё работало. Исходный код и новости — на <a href="https://github.com/milokwela">GitHub</a>.</p></div>
   </div>
 </section>
 </main>
