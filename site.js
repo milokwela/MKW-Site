@@ -89,3 +89,55 @@
   }
   requestAnimationFrame(t);
 })();
+
+// ===== интерактив главной =====
+(function () {
+  var d = document, root = d.documentElement;
+  // вкладки возможностей: телефон меняет экран, сами переключаются, пока вы не нажали
+  var tabs = [].slice.call(d.querySelectorAll('.ft')), A = d.getElementById('fimg'), B = d.getElementById('fimg2'), more = d.getElementById('fmore');
+  if (tabs.length && A) {
+    var cur = 0, auto = true, timer = 0, DUR = 5000, front = A, back = B;
+    tabs.forEach(function (b) { b.style.setProperty('--dur', DUR + 'ms'); });
+    var pre = tabs.map(function (b) { var i = new Image(); i.src = b.dataset.img; return i; });
+    function go(i, user) {
+      cur = i; tabs.forEach(function (b, k) { b.classList.toggle('on', k === i); b.classList.remove('run'); b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      var t = tabs[i]; void t.offsetWidth; if (auto) t.classList.add('run');
+      back.src = t.dataset.img; back.style.transform = 'scale(1.04)';
+      requestAnimationFrame(function () { back.style.opacity = 1; back.style.transform = 'scale(1)'; front.style.opacity = 0; var x = front; front = back; back = x; });
+      more.href = t.dataset.more;
+      if (user && window.matchMedia('(max-width:900px)').matches) t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      clearTimeout(timer); if (auto) timer = setTimeout(function () { go((cur + 1) % tabs.length); }, DUR);
+    }
+    A.style.opacity = 1;
+    tabs.forEach(function (b, i) { b.addEventListener('click', function () { auto = false; go(i, true); }); });
+    try {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && auto) go(cur); else clearTimeout(timer); }); }, { threshold: .35 }).observe(d.querySelector('.fx'));
+    } catch (e) { go(0); }
+  }
+  // свой цвет: перекрашивает и сайт, и экран телефона
+  var sws = [].slice.call(d.querySelectorAll('.sw')), hue = d.querySelector('.hue'), cimg = d.querySelector('.cphone img');
+  function paint(h) {
+    h = +h; root.style.setProperty('--p', 'hsl(' + (331 + h) + ',100%,74%)'); root.style.setProperty('--p2', 'hsl(' + (254 + h) + ',100%,71%)');
+    if (cimg) cimg.style.filter = 'hue-rotate(' + h + 'deg)';
+    sws.forEach(function (s) { s.classList.toggle('on', +s.dataset.h === h); });
+  }
+  sws.forEach(function (s) { s.addEventListener('click', function () { if (hue) hue.value = s.dataset.h; paint(s.dataset.h); }); });
+  if (hue) hue.addEventListener('input', function () { paint(hue.value); });
+  // установка: Android / iPhone / ПК
+  var ot = d.querySelector('[data-os-tabs]');
+  if (ot) {
+    var btns = [].slice.call(ot.querySelectorAll('button')), panes = [].slice.call(d.querySelectorAll('.os-steps'));
+    function os(k) { btns.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.os === k ? 'true' : 'false'); }); panes.forEach(function (p) { p.hidden = p.dataset.os !== k; }); }
+    btns.forEach(function (b) { b.addEventListener('click', function () { os(b.dataset.os); }); });
+    var ua = navigator.userAgent; os(/iPhone|iPad|Macintosh.*Mobile/.test(ua) ? 'ios' : /Android/.test(ua) ? 'android' : 'pc');
+  }
+  // трейлер
+  var m = d.getElementById('trailer');
+  if (m) {
+    var v = m.querySelector('video');
+    function close() { m.hidden = true; v.pause(); }
+    d.querySelectorAll('[data-trailer]').forEach(function (b) { b.addEventListener('click', function () { if (!v.src) v.src = v.dataset.src; m.hidden = false; v.play().catch(function () {}); }); });
+    m.addEventListener('click', function (e) { if (e.target === m || e.target.classList.contains('mclose')) close(); });
+    d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !m.hidden) close(); });
+  }
+})();
