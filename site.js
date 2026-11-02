@@ -141,3 +141,39 @@
     d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !m.hidden) close(); });
   }
 })();
+
+// ===== живые эффекты (v5) =====
+(function () {
+  var d = document, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  // полоса прогресса прокрутки
+  var pr = d.createElement('div'); pr.className = 'prog'; d.body.appendChild(pr);
+  function prog() { var h = d.documentElement.scrollHeight - innerHeight; pr.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')'; }
+  addEventListener('scroll', prog, { passive: true }); prog();
+  if (reduce || !fine) return;
+  // мягкая подсветка за курсором
+  var sp = d.createElement('div'); sp.className = 'spot'; d.body.appendChild(sp);
+  var mx = innerWidth / 2, my = innerHeight / 2, sx = mx, sy = my;
+  addEventListener('pointermove', function (e) { mx = e.clientX; my = e.clientY; sp.style.opacity = 1; }, { passive: true });
+  d.addEventListener('pointerleave', function () { sp.style.opacity = 0; });
+  // телефоны на первом экране следуют за мышью (разная глубина)
+  var st = d.querySelector('.hero2 .stage'), phs = st ? [].slice.call(st.querySelectorAll('.ph')) : [], depth = [18, 30, 14];
+  var big = d.querySelector('.ph.big');
+  (function loop() {
+    sx += (mx - sx) * .12; sy += (my - sy) * .12;
+    sp.style.transform = 'translate(' + sx + 'px,' + sy + 'px)';
+    var nx = sx / innerWidth - .5, ny = sy / innerHeight - .5;
+    phs.forEach(function (p, i) { p.style.transform = 'translate(' + (-nx * depth[i]) + 'px,' + (-ny * depth[i]) + 'px)'; });
+    requestAnimationFrame(loop);
+  })();
+  // наклон большого телефона за курсором
+  if (big) {
+    var box = big.parentElement;
+    box.addEventListener('pointermove', function (e) { var r = big.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; big.style.transform = 'perspective(900px) rotateY(' + (x * 12) + 'deg) rotateX(' + (-y * 10) + 'deg)'; });
+    box.addEventListener('pointerleave', function () { big.style.transform = ''; });
+  }
+  // «магнитные» кнопки
+  d.querySelectorAll('.btn,.tgcard').forEach(function (b) {
+    b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .25) + 'px)'; });
+    b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+  });
+})();
