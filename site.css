@@ -309,3 +309,50 @@ section.tight{padding:70px 0}
 }
 .os-steps[hidden]{display:none}
 .final .by{margin:22px auto 0!important}
+
+/* ===== тёмная тема и анимации (v5) ===== */
+:root{--bg:#040304;--card:rgba(255,255,255,.035);--line:rgba(255,255,255,.08);--mut:#a89aa3}
+body{background:var(--bg)}
+.aurora i{opacity:.13;filter:blur(130px)}
+.aurora i:nth-child(3){opacity:.07}
+#stars{opacity:.55}
+header.top.scrolled,header.top.open{background:rgba(4,3,4,.78)}
+.card,.ft,.color,details,.os-steps li,.final{background:rgba(255,255,255,.025)}
+.final{background:radial-gradient(120% 140% at 50% 0%,color-mix(in srgb,var(--p) 16%,transparent),transparent 60%),radial-gradient(100% 120% at 100% 100%,color-mix(in srgb,var(--p2) 16%,transparent),transparent 60%),rgba(255,255,255,.02)}
+.glow{opacity:.55}
+.btn{box-shadow:0 10px 30px color-mix(in srgb,var(--p) 30%,transparent),inset 0 1px 0 rgba(255,255,255,.25)}
+/* Telegram */
+.tgl{display:inline-flex!important;align-items:center;gap:7px}
+.tgl svg{width:18px;height:18px;color:#5fb7ff}
+.tgcard{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:12px 18px 12px 12px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03);text-decoration:none;transition:border-color .3s,background .3s,transform .3s}
+.tgcard:hover{border-color:rgba(95,183,255,.55);background:rgba(95,183,255,.08);transform:translateY(-2px)}
+.tgi{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#3aa8ff,#2f7bff);box-shadow:0 8px 24px rgba(47,123,255,.35)}
+.tgi svg{width:22px;height:22px;color:#fff}
+.tgcard b{display:block;font-size:15px}.tgcard small{display:block;color:var(--mut);font-size:13px}
+.tgcard i{font-style:normal;color:#5fb7ff;margin-left:6px;transition:transform .3s}.tgcard:hover i{transform:translateX(4px)}
+.sh-btns .tgb{border-color:rgba(95,183,255,.45);color:#cfe8ff}.sh-btns .tgb svg{color:#5fb7ff}
+/* заголовок по словам */
+.js h1.wsplit .w{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);filter:blur(10px);animation:wIn .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1.wsplit .w:nth-child(1){animation-delay:.1s}h1.wsplit .w:nth-child(2){animation-delay:.2s}h1.wsplit .w:nth-child(3){animation-delay:.3s}h1.wsplit .w:nth-child(4){animation-delay:.42s}h1.wsplit .w:nth-child(5){animation-delay:.54s}
+h1.wsplit .w.g{animation:wIn .9s cubic-bezier(.2,.8,.2,1) forwards,shine 7s linear infinite}
+h1.wsplit .w:nth-child(4).g{animation-delay:.42s,0s}h1.wsplit .w:nth-child(5).g{animation-delay:.54s,0s}
+@keyframes wIn{to{opacity:1;transform:none;filter:none}}
+.js .hero2 .lead,.js .hero2 .cta,.js .hero2 .tgcard,.js .hero2 .pills,.js .hero2 .tag{opacity:0;transform:translateY(18px);animation:wIn .9s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero2 .tag{animation-delay:0s}.js .hero2 .lead{animation-delay:.6s}.js .hero2 .cta{animation-delay:.72s}.js .hero2 .tgcard{animation-delay:.84s}.js .hero2 .pills{animation-delay:.96s}
+.js .hero2 .stage{opacity:0;animation:stageIn 1.4s .3s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes stageIn{from{opacity:0;transform:translateY(60px) scale(.94)}to{opacity:1;transform:none}}
+.stage .ph{transition:transform .25s ease-out}
+/* курсор-подсветка */
+.spot{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(closest-side,color-mix(in srgb,var(--p) 13%,transparent),transparent);transition:opacity .4s;opacity:0}
+/* полоса прокрутки сверху */
+.prog{position:fixed;left:0;top:0;height:2px;width:100%;z-index:40;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--p),var(--p2))}
+/* появление при прокрутке — плавнее и с размытием */
+.js .rv{filter:blur(8px)}.js .rv.in{filter:none}
+.marq{background:transparent;border-color:var(--line)}
+.marq span{font-size:17px;color:rgba(255,255,255,.4)}
+.ft{transition:background .35s,border-color .35s,transform .35s,box-shadow .35s}
+.ft.on{box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.ph.big{transition:transform .2s ease-out;transform-style:preserve-3d}
+.fview .glow,.cphone{position:relative}
+.sw{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.btn,.tgcard{will-change:transform}
