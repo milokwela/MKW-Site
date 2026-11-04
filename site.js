@@ -177,3 +177,46 @@
     b.addEventListener('pointerleave', function () { b.style.transform = ''; });
   });
 })();
+
+/* 0.35: стикеры улетают в чат + кнопка «Открыть» внизу на телефоне */
+(function () {
+  var d = document, chat = d.querySelector('[data-cm]'), st = d.querySelector('[data-cm-st]');
+  var all = [].slice.call(d.querySelectorAll('.sg'));
+  var reply = ['s10', 's2', 'c10', 's5', 's33', 'c3', 's24', 'c14', 's12', 's29'];
+  var busy = 0;
+  function add(src, who) {
+    if (!chat) return;
+    var w = d.createElement('div'); w.className = 'cm-st new ' + who;
+    var im = new Image(); im.src = '/img/st/' + src + '.webp'; im.alt = ''; im.width = 130; im.height = 130;
+    w.appendChild(im); chat.appendChild(w);
+    var fit = function () { var hgt = 28; for (var i = 0; i < chat.children.length; i++) hgt += chat.children[i].offsetHeight + 8; return hgt <= chat.clientHeight; };
+    while (chat.children.length > 1 && (chat.children.length > 4 || !fit())) chat.removeChild(chat.firstChild);
+  }
+  function send(btn) {
+    var s = btn.getAttribute('data-s');
+    btn.classList.remove('sent'); void btn.offsetWidth; btn.classList.add('sent');
+    add(s, 'me');
+    clearTimeout(busy);
+    if (st) { st.textContent = 'выбирает стикер…'; st.classList.add('typing'); }
+    busy = setTimeout(function () {
+      add(reply[Math.floor(Math.random() * reply.length)], 'them');
+      if (st) { st.textContent = 'в сети'; st.classList.remove('typing'); }
+    }, 1100);
+    if (chat) { var r = chat.getBoundingClientRect(); if (r.bottom < 80 || r.top > innerHeight - 80) chat.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  }
+  all.forEach(function (b) { b.addEventListener('click', function () { send(b); }); });
+  var rnd = d.querySelector('[data-stk-rand]');
+  if (rnd) rnd.addEventListener('click', function () { if (all.length) send(all[Math.floor(Math.random() * all.length)]); });
+  var cta = d.querySelector('.sticky-cta'), hero = d.querySelector('.hero');
+  if (cta && hero) {
+    var fin = d.querySelector('.final');
+    var upd = function () {
+      var past = hero.getBoundingClientRect().bottom < 60;
+      var atEnd = fin && fin.getBoundingClientRect().top < innerHeight;
+      var cm = d.querySelector('.chatm'), inChat = false;
+      if (cm) { var r = cm.getBoundingClientRect(); inChat = r.top < innerHeight && r.bottom > 0; }
+      cta.classList.toggle('on', past && !atEnd && !inChat);
+    };
+    addEventListener('scroll', upd, { passive: true }); upd();
+  }
+})();
